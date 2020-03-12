@@ -38,20 +38,13 @@ An _open-source project_ built and maintained by **facebook**.
 ```jsx live=true clickToReveal=true
 function GoButton(props) {
   return (
-    <button
-      className="btn"
-      onClick={props.onClick}
-    >
+    <button className="btn" onClick={props.onClick}>
       Go!
     </button>
   );
 }
 
-render(
-  <GoButton
-    onClick={() => alert('hi')}
-  />
-)
+render(<GoButton onClick={() => alert("hi")} />);
 ```
 
 ---
@@ -90,12 +83,12 @@ function GoButton(props) {
 // After
 function GoButton(props) {
   return React.createElement(
-    'button',
+    "button",
     {
-      className: 'btn',
-      onClick: props.handleClick,
+      className: "btn",
+      onClick: props.handleClick
     },
-    'Go!'
+    "Go!"
   );
 }
 ```
@@ -140,7 +133,7 @@ A _slot_ in which we can write JavaScript expressions.
 ```jsx
 let index = 0;
 
-<div id={'item-' + index} />;
+<div id={"item-" + index} />;
 ```
 
 ---
@@ -150,16 +143,14 @@ const awakeStudents = 10;
 const asleepStudents = 0;
 
 render(
-  <div>
-    There are {awakeStudents + asleepStudents} students in the class.
-  </div>
+  <div>There are {awakeStudents + asleepStudents} students in the class.</div>
 );
 ```
 
 ---
 
 ```jsx
-<li className={isOnline && 'green'}>{user.username}</li>
+<li className={isOnline && "green"}>{user.username}</li>
 
 // ⚠️ New notation! another way to use of &&.
 ```
@@ -171,7 +162,7 @@ render(
 Convert this JSX snippet to HTML:
 
 ```jsx
-let birthdayCakeImage = '/images/cake.jpg';
+let birthdayCakeImage = "/images/cake.jpg";
 let age = 10;
 
 <div className="wrapper">
@@ -180,6 +171,10 @@ let age = 10;
 </div>;
 ```
 
+<div class="wrapper">
+  <img src='/images/cake.jpg' />
+  <p>Happy 10th birthday!</p>
+</div>
 ---
 
 Convert this one too:
@@ -198,6 +193,13 @@ let agreeToTerms = false;
 </div>;
 ```
 
+let agreeToTerms = false;
+
+<div>
+  <label for="terms-of-service">
+    <input type="checkbox" id="terms-of-service" /> I agree to the terms
+  </label>
+</div>
 ---
 
 Convert:
@@ -205,17 +207,17 @@ Convert:
 ```jsx
 const pets = [
   {
-    name: 'Bark Obama',
+    name: "Bark Obama",
     age: 3,
-    species: 'dog',
-    breed: 'Labradoodle',
+    species: "dog",
+    breed: "Labradoodle"
   },
   {
-    name: 'Chairman Meow',
+    name: "Chairman Meow",
     age: 8,
-    species: 'cat',
-    breed: 'ragdoll',
-  },
+    species: "cat",
+    breed: "ragdoll"
+  }
 ];
 
 <div>
@@ -264,6 +266,76 @@ const pets = [
 </div>;
 ```
 
+const pets = [
+{
+name: 'Bark Obama',
+age: 3,
+species: 'dog',
+breed: 'Labradoodle',
+},
+{
+name: 'Chairman Meow',
+age: 8,
+species: 'cat',
+breed: 'ragdoll',
+},
+];
+
+<div>
+  <h1 class="title">My pets:</h1>
+  <ul>
+    <li>
+      <h3>Bark Obama</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Species</th>
+            <th>Breed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>dog</td>
+            <td>Labradoodle</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+
+    <li>
+      <h3>Chairman Meow</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Species</th>
+            <th>Breed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>8</td>
+            <td>cat</td>
+            <td>ragdoll</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+
+  </ul>
+</div>
+
+---
+
+# Rendering
+
+````jsx
+ReactDOM.render(
+  <div>Hello world</div>,
+  document.querySelector('#root')
+);
 ---
 
 # Rendering
@@ -273,7 +345,7 @@ ReactDOM.render(
   <div>Hello world</div>,
   document.querySelector('#root')
 );
-```
+````
 
 ---
 

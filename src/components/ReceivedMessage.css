@@ -1,0 +1,25 @@
+/*
+  The current user's messages should have:
+  - a text color of #FFF
+  - a background color of #1185f7
+
+  Other participant's messages should have:
+  - a text color of #000
+  - a background color of #e9e9eb
+*/
+.chat-received-message {
+  flex: 1;
+  color: #fff;
+  background-color: #1185f7;
+  border: 1px solid #1185f7;
+  word-wrap: break-word;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 4px;
+}
+
+img {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
