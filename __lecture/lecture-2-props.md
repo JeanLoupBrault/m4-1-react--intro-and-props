@@ -101,6 +101,7 @@ function VideoPlayer(props) {
 
 function VideoPlayer(props) {
 return (
+
 <div>
 <video
         src={props.videoUrl}
@@ -115,6 +116,7 @@ return (
 // or destructured version:
 function VideoPlayer({ videoUrl, width, height, desc }) {
 return (
+
 <div>
 <video
         src={videoUrl}
@@ -154,6 +156,7 @@ function Tweet(props) {
 
 function Tweet(props) {
 return (
+
 <div>
 <Avatar src={props.src} />
 <div>
@@ -193,6 +196,7 @@ function Header(props) {
 
 function Header(props) {
 return (
+
 <header>
 <h1>{props.title}</h1>
 
@@ -351,6 +355,18 @@ const forecasts = [4, -3, 1, 9, 4, 2, -6];
 </div>;
 ```
 
+const forecasts = [4, -3, 1, 9, 4, 2, -6];
+
+<div>
+  <h1 className="title">Weather forecast for the week ahead:</h1>
+  <ul>
+          {forecasts.map(forecast => (
+        <Day
+         temperature={forecast.degrees}
+         />
+      ))}
+    </ul>
+</div>;
 ---
 
 ```jsx

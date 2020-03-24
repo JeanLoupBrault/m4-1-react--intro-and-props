@@ -1,38 +1,54 @@
 import React from 'react';
 
-import './ChatMessage.css'
+import Avatar from './Avatar';
 
-import SentMessage from './SentMessage'
-import ReceivedMessage from './ReceivedMessage'
+import './ChatMessage.css';
 
-function doThis(props) {
-    if (props.messageType === 'sent') {
-        return (
-            <SentMessage
-                imgUrl={props.user.avatar}
-                username={props.user.username}
-                body={props.body}
-                messageType={props.messageType}
-            />
-        );
-    } else {
-        return (
-            <ReceivedMessage
-                imgUrl={props.user.avatar}
-                username={props.user.username}
-                body={props.body}
-                messageType={props.messageType}
-            />
-        );
-    }
+const bubbleTipSentSrc = '/assets/tip-sent.svg';
+const bubbleTipReceivedSrc = '/assets/tip-received.svg';
+
+function SentMessage(props) {
+    return (
+        <div className="chat-message-wrapper.sent">
+            <div className="chat-message">
+                {props.message.body}
+                <img
+                    alt=""
+                    role="presentation"
+                    className="tip"
+                    src={bubbleTipSentSrc}
+                />
+            </div>
+        </div>
+    );
+}
+
+function ReceivedMessage(props) {
+    return (
+        <div className="chat-message-wrapper.received">
+            <Avatar size={36} user={props.message.user} />
+            <div className="name-and-message">
+                <div className="author">{props.message.user.username}</div>
+                <div className="chat-message">
+                    {props.message.body}
+                    <img
+                        alt=""
+                        role="presentation"
+                        className="tip"
+                        src={bubbleTipReceivedSrc}
+                    />
+                </div>
+            </div>
+        </div>
+    );
 }
 
 function ChatMessage(props) {
-    return (
-        <section className="chat-message">
-            {doThis(props)}
-        </section>)
+    if (props.messageType === 'sent') {
+        return <SentMessage message={props.message} />;
+    } else {
+        return <ReceivedMessage message={props.message} />;
+    }
 }
-
 
 export default ChatMessage;
